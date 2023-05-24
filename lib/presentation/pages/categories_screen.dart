@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/data/dataSources/local/dummy_data.dart';
+import 'package:meals_app/domain/models/category_model.dart';
 import 'package:meals_app/presentation/pages/meals_screen.dart';
 import 'package:meals_app/presentation/widgets/category_grid_item.dart';
 import 'package:meals_app/utils/constants.dart';
@@ -7,11 +8,21 @@ import 'package:meals_app/utils/constants.dart';
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
-  void _selectCategory(BuildContext context) {
+  void _selectCategory(BuildContext context, CategoryModel category) {
+    // where => renvoi une new list qui ne contient que les elt qui repondent à une certaine conditions
+    /// true si la condition et vérifier et false si la condition n'est pas vérifier
+    /// ce cas la fun renvoie true si le meal appartient à la catégory selectioné
+    final filterdMeals = dummyMeals
+        .where((meal) => meal.categories.contains(category.id))
+        .toList();
+
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (ctx) => const MealsScreen(title: 'Some title...', meals: []),
+        builder: (ctx) => MealsScreen(
+          title: category.title,
+          meals: filterdMeals,
+        ),
       ),
     );
   }
@@ -39,7 +50,7 @@ class CategoriesScreen extends StatelessWidget {
           for (final category in availableCategories)
             CategoryGridItem(
               category: category,
-              onSelectCategory: () => _selectCategory(context),
+              onSelectCategory: () => _selectCategory(context, category),
             ),
         ],
       ),
