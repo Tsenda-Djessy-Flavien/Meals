@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/configs/congifs.dart';
-import 'package:meals_app/presentation/pages/categories_screen.dart';
+import 'package:meals_app/presentation/pages/tabs_screen.dart';
 import 'package:meals_app/utils/constants.dart';
 
 class App extends StatelessWidget {
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: APP_NAME,
       theme: theme,
-      home: const CategoriesScreen(),
+      home: const TabsScreen(),
     );
   }
 }
