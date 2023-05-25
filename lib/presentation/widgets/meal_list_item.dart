@@ -4,9 +4,14 @@ import 'package:meals_app/presentation/widgets/meal_item_trait.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class MealListitem extends StatelessWidget {
-  const MealListitem({super.key, required this.meal});
+  const MealListitem({
+    super.key,
+    required this.meal,
+    required this.onShowMealDetail,
+  });
 
   final MealsModel meal;
+  final void Function(BuildContext context, MealsModel meals) onShowMealDetail;
 
   String get complexityText {
     // première lettre en majuscule et le reste ne miniscule
@@ -27,7 +32,7 @@ class MealListitem extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       elevation: 2,
       child: InkWell(
-        onTap: () {},
+        onTap: () => onShowMealDetail(context, meal),
         child: Stack(
           children: [
             // afficher l'image de facon fluide
