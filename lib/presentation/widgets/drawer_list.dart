@@ -27,7 +27,7 @@ class DrawerList extends StatelessWidget {
               fontSize: 24,
             ),
       ),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }

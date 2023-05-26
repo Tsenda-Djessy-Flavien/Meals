@@ -3,7 +3,9 @@ import 'package:meals_app/presentation/widgets/drawer_list.dart';
 import 'package:meals_app/utils/constants.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({super.key});
+  const MainDrawer({super.key, required this.onSelectScreen});
+
+  final void Function(String idScreen) onSelectScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +47,12 @@ class MainDrawer extends StatelessWidget {
           DrawerList(
             icon: Icons.restaurant,
             title: DRAWER_MAIN_TITLE_MEAL,
-            onTap: () {},
+            onTap: () => onSelectScreen('meals'),
           ),
           DrawerList(
             icon: Icons.settings,
             title: DRAWER_MAIN_TITLE_FILTERS,
-            onTap: () {},
+            onTap: () => onSelectScreen('filters'),
           ),
         ],
       ),

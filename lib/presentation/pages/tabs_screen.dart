@@ -52,6 +52,15 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
+  // quand on press sur le DrawerList,
+  // on obtient une valeur differente à l'interieur de cette func
+  void _setScreen(String idScreen) {
+    if (idScreen == 'filters') {
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage = CategoriesScreen(
@@ -71,7 +80,7 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(activePageTitle),
       ),
-      drawer: const MainDrawer(),
+      drawer: MainDrawer(onSelectScreen: _setScreen),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
