@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:meals_app/data/dataSources/local/dummy_data.dart';
 import 'package:meals_app/domain/models/category_model.dart';
+import 'package:meals_app/domain/models/meals_model.dart';
 import 'package:meals_app/presentation/pages/meals_screen.dart';
 import 'package:meals_app/presentation/widgets/category_grid_item.dart';
 
 class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
+  const CategoriesScreen({
+    super.key,
+    required this.onToggleMealFavoriteStatus,
+  });
+
+  final void Function(MealsModel meal) onToggleMealFavoriteStatus;
 
   void _selectCategory(BuildContext context, CategoryModel category) {
     // where => renvoi une new list qui ne contient que les elt qui repondent à une certaine conditions
@@ -21,6 +27,7 @@ class CategoriesScreen extends StatelessWidget {
         builder: (ctx) => MealsScreen(
           title: category.title,
           meals: filterdMeals,
+          onToggleMealFavoriteStatus: onToggleMealFavoriteStatus,
         ),
       ),
     );
