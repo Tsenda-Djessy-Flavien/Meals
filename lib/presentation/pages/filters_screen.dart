@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/presentation/widgets/switch_button.dart';
 // import 'package:meals_app/presentation/pages/tabs_screen.dart';
 // import 'package:meals_app/presentation/widgets/main_drawer.dart';
 import 'package:meals_app/utils/constants.dart';
@@ -12,12 +13,9 @@ class FiltersScreen extends StatefulWidget {
 
 class _FiltersScreenState extends State<FiltersScreen> {
   bool _glutenFreeFilter = false;
-
-  _onSwitch(bool isChecked) {
-    setState(() {
-      _glutenFreeFilter = isChecked;
-    });
-  }
+  bool _lactoseFreeFilter = false;
+  bool _vegeterianFilter = false;
+  bool _veganFilter = false;
 
   // void _onSelectScreen(idScreen) {
   //   Navigator.of(context).pop();
@@ -37,23 +35,45 @@ class _FiltersScreenState extends State<FiltersScreen> {
       // drawer: MainDrawer(onSelectScreen: _onSelectScreen),
       body: Column(
         children: [
-          SwitchListTile(
+          SwitchButton(
             value: _glutenFreeFilter,
-            onChanged: _onSwitch,
-            title: Text(
-              SWITCH_TITLE_GLUTEN,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
-                  ),
-            ),
-            subtitle: Text(
-              SWITCH_SUBTITLE_GLUTEN,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
-                  ),
-            ),
-            activeColor: Theme.of(context).colorScheme.tertiary,
-            contentPadding: const EdgeInsets.only(left: 34, right: 22),
+            onChanged: (bool isChecked) {
+              setState(() {
+                _glutenFreeFilter = isChecked;
+              });
+            },
+            title: SWITCH_TITLE_GLUTEN,
+            subtitle: SWITCH_SUBTITLE_GLUTEN,
+          ),
+          SwitchButton(
+            value: _lactoseFreeFilter,
+            onChanged: (bool isChecked) {
+              setState(() {
+                _lactoseFreeFilter = isChecked;
+              });
+            },
+            title: SWITCH_TITLE_LACTOSE,
+            subtitle: SWITCH_SUBTITLE_LACTOSE,
+          ),
+          SwitchButton(
+            value: _vegeterianFilter,
+            onChanged: (bool isChecked) {
+              setState(() {
+                _vegeterianFilter = isChecked;
+              });
+            },
+            title: SWITCH_TITLE_VEGTARIAN,
+            subtitle: SWITCH_SUBTITLE_VEGTARIAN,
+          ),
+          SwitchButton(
+            value: _veganFilter,
+            onChanged: (bool isChecked) {
+              setState(() {
+                _veganFilter = isChecked;
+              });
+            },
+            title: SWITCH_TITLE_VEGAN,
+            subtitle: SWITCH_SUBTITLE_VEGAN,
           ),
         ],
       ),

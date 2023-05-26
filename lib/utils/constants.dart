@@ -29,4 +29,17 @@ const DRAWER_MAIN_TITLE_FILTERS = 'Filters';
 const FILTERS_APP_BAR_TITLE = 'Your Filters';
 
 const SWITCH_TITLE_GLUTEN = 'Gluten-free';
+
 const SWITCH_SUBTITLE_GLUTEN = 'Only include gluten-free meals.';
+
+const SWITCH_TITLE_LACTOSE = 'Lactose-Free';
+
+const SWITCH_SUBTITLE_LACTOSE = 'Only include lactose-free meals.';
+
+const SWITCH_TITLE_VEGTARIAN = 'Vegetarian';
+
+const SWITCH_SUBTITLE_VEGTARIAN = 'Only include Vegetarian meals.';
+
+const SWITCH_TITLE_VEGAN = 'Vegen';
+
+const SWITCH_SUBTITLE_VEGAN = 'Only include Vegen meals.';
