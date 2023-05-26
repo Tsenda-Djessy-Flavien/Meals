@@ -25,3 +25,8 @@ const DRAWER_HEAD_TEXT = 'Cooking Up!';
 const DRAWER_MAIN_TITLE_MEAL = 'Meals';
 
 const DRAWER_MAIN_TITLE_FILTERS = 'Filters';
+
+const FILTERS_APP_BAR_TITLE = 'Your Filters';
+
+const SWITCH_TITLE_GLUTEN = 'Gluten-free';
+const SWITCH_SUBTITLE_GLUTEN = 'Only include gluten-free meals.';
