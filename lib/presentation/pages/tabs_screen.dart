@@ -20,17 +20,32 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
+  void _showInOfMessage(String message) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+  }
+
   void _toggleMealFavoriteStatus(MealsModel meal) {
     // verifie si cela existe deja dans la liste ou pas
     final isExisting = _favoriteMeals.contains(meal);
 
     if (isExisting) {
       // isExisting = true
-      _favoriteMeals.remove(meal);
+      setState(() {
+        _favoriteMeals.remove(meal);
+      });
+      _showInOfMessage('Meal is no longer a favorite');
       // print('remove ${meal.title}');
     } else {
       // isExisting = false
-      _favoriteMeals.add(meal);
+      setState(() {
+        _favoriteMeals.add(meal);
+      });
+      _showInOfMessage('Marked as a favorite');
       // print('add ${meal.title}');
     }
   }
@@ -44,7 +59,7 @@ class _TabsScreenState extends State<TabsScreen> {
 
     if (_selectPageIndex == 1) {
       activePage = MealsScreen(
-        meals: const [],
+        meals: _favoriteMeals,
         onToggleMealFavoriteStatus: _toggleMealFavoriteStatus,
       );
       activePageTitle = 'Your Favorites';
