@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+// import 'package:meals_app/presentation/pages/tabs_screen.dart';
+// import 'package:meals_app/presentation/widgets/main_drawer.dart';
 import 'package:meals_app/utils/constants.dart';
 
 class FiltersScreen extends StatefulWidget {
@@ -17,12 +19,22 @@ class _FiltersScreenState extends State<FiltersScreen> {
     });
   }
 
+  // void _onSelectScreen(idScreen) {
+  //   Navigator.of(context).pop();
+  //   if (idScreen == 'meals') {
+  //     Navigator.of(context).pushReplacement(
+  //       MaterialPageRoute(builder: (context) => const TabsScreen()),
+  //     );
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(FILTERS_APP_BAR_TITLE),
       ),
+      // drawer: MainDrawer(onSelectScreen: _onSelectScreen),
       body: Column(
         children: [
           SwitchListTile(

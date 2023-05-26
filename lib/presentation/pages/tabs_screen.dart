@@ -56,13 +56,16 @@ class _TabsScreenState extends State<TabsScreen> {
   // quand on press sur le DrawerList,
   // on obtient une valeur differente à l'interieur de cette func
   void _setScreen(String idScreen) {
+    Navigator.of(context).pop(); // || 1 -> do that
     if (idScreen == 'filters') {
+      // Navigator.of(context).pop(); || 1 idem
       Navigator.of(context).push(
         MaterialPageRoute(builder: (context) => const FiltersScreen()),
       );
-    } else {
-      Navigator.of(context).pop();
     }
+    // else {
+    //   Navigator.of(context).pop(); || 1 idem
+    // }
   }
 
   @override
