@@ -43,7 +43,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
       // drawer: MainDrawer(onSelectScreen: _onSelectScreen),
       body: WillPopScope(
         onWillPop: () async {
-          // navigation en arrière
+          // ces data seront utiliser dans un autre écran (tabscreen)
           Navigator.of(context).pop({
             Filter.gutenFree: _glutenFreeFilter,
             Filter.lactoseFree: _lactoseFreeFilter,
@@ -52,6 +52,9 @@ class _FiltersScreenState extends State<FiltersScreen> {
           });
           // et coe nous navigons en arrière on doit ici return false
           return false; // true si on renvoyais ces données dans une database
+          // les data renvoyé par les navigator.pop
+          // seront maintenu lu sur le screen (tabs_screen) qui nous à permit
+          //d'acceder à cette écran actuel (filters_screen)
         },
         child: Column(
           children: [

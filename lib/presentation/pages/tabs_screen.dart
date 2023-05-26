@@ -55,13 +55,15 @@ class _TabsScreenState extends State<TabsScreen> {
 
   // quand on press sur le DrawerList,
   // on obtient une valeur differente à l'interieur de cette func
-  void _setScreen(String idScreen) {
+  void _setScreen(String idScreen) async {
     Navigator.of(context).pop(); // || 1 -> do that
     if (idScreen == 'filters') {
       // Navigator.of(context).pop(); || 1 idem
-      Navigator.of(context).push(
+      final result = await Navigator.of(context).push<Map<Filter, bool>>(
+        // va prendre la data dans FilterScreen qui seront ici (tabScreen)
         MaterialPageRoute(builder: (context) => const FiltersScreen()),
       );
+      print(result);
     }
     // else {
     //   Navigator.of(context).pop(); || 1 idem
