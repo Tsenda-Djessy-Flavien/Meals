@@ -13,7 +13,11 @@ enum Filter {
 }
 
 class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({super.key});
+  const FiltersScreen({super.key, required this.currentFilters});
+
+  // stocker le filtre selectionner
+  // ensuite initialiser nos variables d'état de filtre
+  final Map<Filter, bool> currentFilters;
 
   @override
   State<FiltersScreen> createState() => _FiltersScreenState();
@@ -24,6 +28,16 @@ class _FiltersScreenState extends State<FiltersScreen> {
   bool _lactoseFreeFilter = false;
   bool _vegeterianFilter = false;
   bool _veganFilter = false;
+
+  @override
+  void initState() {
+    super.initState();
+    // initlisation des variables d'etat par les values reels qui ont ete selectionner
+    _glutenFreeFilter = widget.currentFilters[Filter.gutenFree]!;
+    _lactoseFreeFilter = widget.currentFilters[Filter.lactoseFree]!;
+    _vegeterianFilter = widget.currentFilters[Filter.vegeterian]!;
+    _veganFilter = widget.currentFilters[Filter.vegan]!;
+  }
 
   // void _onSelectScreen(idScreen) {
   //   Navigator.of(context).pop();
