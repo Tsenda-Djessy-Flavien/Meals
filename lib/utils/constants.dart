@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
+import 'package:meals_app/presentation/pages/filters_screen.dart';
+
 const APP_NAME = 'Meals APP';
 
 const APP_BAR_TITLE = 'Pick your category';
@@ -43,3 +45,10 @@ const SWITCH_SUBTITLE_VEGTARIAN = 'Only include Vegetarian meals.';
 const SWITCH_TITLE_VEGAN = 'Vegen';
 
 const SWITCH_SUBTITLE_VEGAN = 'Only include Vegen meals.';
+
+const kInitialilFilters = {
+  Filter.gutenFree: false,
+  Filter.lactoseFree: false,
+  Filter.vegeterian: false,
+  Filter.vegan: false,
+};

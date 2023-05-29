@@ -9,15 +9,17 @@ class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({
     super.key,
     required this.onToggleMealFavoriteStatus,
+    required this.availableMeals,
   });
 
   final void Function(MealsModel meal) onToggleMealFavoriteStatus;
+  final List<MealsModel> availableMeals;
 
   void _selectCategory(BuildContext context, CategoryModel category) {
     // where => renvoi une new list qui ne contient que les elt qui repondent à une certaine conditions
     /// true si la condition et vérifier et false si la condition n'est pas vérifier
     /// ce cas la fun renvoie true si le meal appartient à la catégory selectioné
-    final filterdMeals = dummyMeals
+    final filterdMeals = availableMeals // dummyMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
